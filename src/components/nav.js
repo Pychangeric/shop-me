@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SignInForm from './SignInForm';
+import './nav.css';
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
