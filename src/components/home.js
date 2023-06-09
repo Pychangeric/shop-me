@@ -23,7 +23,7 @@ const Home = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:9292/');
+      const response = await fetch('http://localhost:9292/books');
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
@@ -41,7 +41,7 @@ const Home = () => {
         body: JSON.stringify(newBook),
       });
       const createdBook = await response.json();
-      setData([...data, createdBook]);
+      setData(prevData => [...prevData, createdBook]);
       setNewBook({
         title: '',
         description: '',
@@ -56,14 +56,12 @@ const Home = () => {
     }
   };
 
-  
-
   const deleteBook = async (bookId) => {
     try {
       await fetch(`http://localhost:9292/books/${bookId}`, {
         method: 'DELETE',
       });
-      setData(data.filter((book) => book.id !== bookId));
+      setData(prevData => prevData.filter((book) => book.id !== bookId));
     } catch (error) {
       console.error('Error deleting book:', error);
     }
@@ -116,7 +114,7 @@ const Home = () => {
       </div>
 
       <ul>
-        {data.map((item) => (
+        {data && Array.isArray(data) && data.map((item) => (
           <li key={item.id}>
             <button onClick={() => openModal(item)}>
               <img src={item.image_url} alt="Book cover" />
@@ -195,9 +193,9 @@ const Home = () => {
             <br />
 
             {!isEditMode && (
-               <button type="button" onClick={createBook}>
-                 Create
-               </button>
+              <button type="button" onClick={createBook}>
+                Create
+              </button>
             )}
 
             <button type="button" onClick={closeModal}>
