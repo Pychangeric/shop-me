@@ -10,6 +10,11 @@ const SignInForm = () => {
   const [showNotification, setShowNotification] = useState(false);
   const [error, setError] = useState("");
 
+
+  const navigateToHome = () => {
+    window.location.href = "/home";
+  };
+
   const handleSignInClick = () => {
     setShowDropdown(true);
   };
@@ -21,7 +26,6 @@ const SignInForm = () => {
   const handleDropdownSubmit = (e) => {
     e.preventDefault();
 
-    // Perform backend API call to store user data
     fetch("http://localhost:9292/users", {
       method: "POST",
       body: JSON.stringify({ first_name: firstName, last_name: lastName, email, password }),
@@ -32,19 +36,19 @@ const SignInForm = () => {
       .then((response) => response.json())
       .then((data) => {
         if (data.id) {
-          // Handle successful sign-in and data submission
+        
           setShowNotification(true);
           setTimeout(() => {
             setShowDropdown(false);
             setShowNotification(false);
-          }, 3000); // Delay to hide the dropdown and notification after 3 seconds
+          }, 5000); 
         } else {
-          // Handle sign-in error
+         
           setError(data.message);
         }
       })
       .catch((error) => {
-        // Handle sign-in error
+       
         setError("An error occurred during sign-in.");
         console.error(error);
       });

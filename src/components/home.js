@@ -95,7 +95,8 @@ const Home = () => {
   return (
     <div className="Home">
       <NavBar />
-      <h1>Bookstore</h1>
+      
+      <h1>Welcome To Our Page Explore <br /> to get your interest</h1>
 
       <div className="search">
         <form>

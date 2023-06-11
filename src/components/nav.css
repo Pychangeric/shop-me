@@ -1,26 +1,26 @@
 .navbar {
-    background-color: #7b7979;
+    background-color: #c2bebe;
     color: #fff;
     padding: 10px;
   }
   
   .navbar-container {
     display: flex;
-    background-color: #7b7979;
+    background-color: #c2bebe;
     align-items: center;
     justify-content: space-between;
   }
   
   .navbar-brand a {
-    background-color: #7b7979;
+    background-color:#c2bebe;
     color: #fffefe;
     font-weight: bold;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 44px;
   }
   
   .navbar-menu {
-    background-color: #7b7979;
+    background-color:#c2bebe;
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
@@ -49,5 +49,6 @@
   
   .navbar-links a:hover {
     text-decoration: underline;
+    background-color: rgb(37, 55, 55);
   }
   
