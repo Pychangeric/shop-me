@@ -37,7 +37,7 @@ The oveview has the author's name and also price on them it does all related det
 
 *****
 ## Live Link
-Or you can access the web application directly via this [LINK.](link.com/)
+Or you can access the web application directly via this [LINK.](https://shop-me-git-main-pychangeric.vercel.app//)
 *****
 ## Dependencies
 - Google
